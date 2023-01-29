@@ -5,8 +5,14 @@ from CSProject.stocks import printValues
 
 
 class Main:
-    data = printValues("GOOG")
+
+    tickr = input("Please enter Tickr Symbol: ")
+
+    date = input("Please enter expiry date: ")
+
+    data = printValues(tickr)
     for c in data:
-        print(c)
+        if c.getDate().__contains__(date):
+            print(c)
 
 
