@@ -4,37 +4,37 @@ import sys
 from CSProject.Contract import Contract
 from CSProject.stocks import printValues
 
-
+#exercise option
 def calculate(Contract, moneyRange):
-    rangeVal = math.floor(Contract.getStrike())
-    rangeVal2 = math.ceil(Contract.getStrike())
-    for i in range(rangeVal-moneyRange/2, rangeVal2+moneyRange/2):
-        profit = (i-Contract.getStrike())*100 - Contract.getPrice()*100
-        print("For market price of: " + i + "your profit is " + profit)
+    rangeVal = int(Contract.getStrike())
+    rangeVal2 = int(Contract.getStrike())
+    for i in range(rangeVal-int(moneyRange/2), rangeVal2+int(moneyRange/2)):
+        print(i)
+        profit = (i-float(Contract.getStrike()))*100 - float(Contract.getPrice())*100
+        print("For market price of: ", i, "your profit is ", profit)
     print("hello")
+
+
+#Sell to close
+def calculate(Contract, moneyRange, stc, dayRange):
+    rangeVal = int(Contract.getStrike())
+    rangeVal2 = int(Contract.getStrike())
+    for i in range(dayRange):
+        print("     day: ", i, "     ", end = "")
+    for i in range(rangeVal-int(moneyRange/2), rangeVal2+int(moneyRange/2)):
+        for i in range(dayRange):
+            profit = float(Contract.getPrice())*100 - float()
+
+
+
 
 
 
 class Main(Contract):
-
-    #tickr = input("Please enter Tickr Symbol: ")
-
-    ##date = input("Please enter expiry date: ")
-
-    #data = printValues(tickr)
-    #x = 1
-    #for c in data:
-    #    if c.getDate().__contains__(date):
-    #        print(x, " - ", c)
-    #        x=x+1
-
-
-
-    test = Contract(21.5, -0.00324, 0.01, "2023 - 02 - 17")
-    print(test.getDate())
-    print(int(test.getStrike()))
-    #contractSelection = int(input("Enter the number corresponding to the contract you want"))
-    #print(contractSelection)
-    #calculate(data[contractSelection], 20)
-
-
+    data = printValues("GOOG")
+    x = 1
+    for c in data:
+        if c.getDate().__contains__("GOOG"):
+            print(x, " - ", c)
+            x = x + 1
+    calculate(data[6], 20, True, 7)
