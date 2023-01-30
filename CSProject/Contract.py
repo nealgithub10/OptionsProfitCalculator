@@ -31,3 +31,6 @@ class Contract:
 
     def __str__(self):
         return "strike:" + self.strike + ", price:" + self.price + ", thetha:" + self.theta + ", date: " + self.date
+
+
+
