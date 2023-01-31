@@ -40,8 +40,10 @@ class Contract:
     def getDelta(self):
         return self.delta
 
+    def setDelta(self, delta):
+        self.delta = delta
     def __str__(self):
-        return  "strike:" + self.strike + ", price:" + self.price + ", thetha:" + self.theta + ", date: " + self.date + ", gamma:" + self.gamma + ", delta:" + self.delta
+        return  "strike:" + self.strike + ", price:" + self.price + ", theta:" + self.theta + ", date: " + self.date + ", gamma:" + self.gamma + ", delta:" + self.delta
 
 
 
