@@ -1,8 +1,8 @@
 import math
 import sys
 
-from CSProject.Contract import Contract
-from CSProject.stocks import printValues
+from Contract import Contract
+from stocks import printValues
 
 #exercise option
 def calculate(Contract, moneyRange):

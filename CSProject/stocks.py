@@ -8,9 +8,7 @@ import requests
 import sys
 from bs4 import BeautifulSoup
 
-from CSProject.Contract import Contract
-
-
+from Contract import Contract
 
 
 def printValues(symbol):
@@ -53,10 +51,6 @@ def printValues(symbol):
           }
           data.append(c)
     return data
-
-
-
-symbol=sys.argv[1]
 
 
 
