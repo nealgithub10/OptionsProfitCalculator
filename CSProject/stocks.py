@@ -37,18 +37,18 @@ def printValues(symbol):
         strike = columns[0].text
         if (strike != "Strike"):
           price= columns[4].text
-          thetha = columns[12].text
+          theta = columns[12].text
           gamma = columns[13].text
-          output = "strike:" + strike + ", price:" + price + ", thetha:" + thetha + ", gamma:" + gamma
+          output = "strike:" + strike + ", price:" + price + ", theta:" + theta + ", gamma:" + gamma
           #print(output)
 
-          c = Contract(strike, thetha, price, date, gamma)
+          c = Contract(strike, theta, price, date, gamma)
 
           output_map = {
             "date": date,
             "strike": strike,
             "price": price,
-            "thetha": thetha,
+            "theta": theta,
             "gamma": gamma
           }
           data.append(c)

@@ -37,7 +37,7 @@ class Contract:
         return self.gamma
 
     def __str__(self):
-        return "strike:" + self.strike + ", price:" + self.price + ", thetha:" + self.theta + ", date: " + self.date + ", gamma:" + self.gamma
+        return self.gamma + "strike:" + self.strike + ", price:" + self.price + ", thetha:" + self.theta + ", date: " + self.date + ", gamma:" + self.gamma
 
 
 
