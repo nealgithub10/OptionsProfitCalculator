@@ -39,7 +39,8 @@ def printValues(symbol):
           price= columns[4].text
           theta = columns[12].text
           gamma = columns[13].text
-          c = Contract(strike, theta, price, date, gamma)
+          delta = columns[11].text
+          c = Contract(strike, theta, price, date, gamma, delta)
           data.append(c)
 
     return data

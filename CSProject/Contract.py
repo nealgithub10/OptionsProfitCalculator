@@ -1,10 +1,11 @@
 class Contract:
-    def __init__(self, strike, theta, price, date, gamma):
+    def __init__(self, strike, theta, price, date, gamma, delta):
         self.strike = strike
         self.theta = theta
         self.price = price
         self.date = date
         self.gamma = gamma
+        self.delta = delta
 
     def getStrike(self):
         return self.strike
@@ -36,8 +37,11 @@ class Contract:
     def getGamma(self):
         return self.gamma
 
+    def getDelta(self):
+        return self.delta
+
     def __str__(self):
-        return  "strike:" + self.strike + ", price:" + self.price + ", thetha:" + self.theta + ", date: " + self.date + ", gamma:" + self.gamma
+        return  "strike:" + self.strike + ", price:" + self.price + ", thetha:" + self.theta + ", date: " + self.date + ", gamma:" + self.gamma + ", delta:" + self.delta
 
 
 

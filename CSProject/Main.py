@@ -20,19 +20,23 @@ def calculate(contract, moneyRange):
 def calculate(contract, moneyRange, stc, dayRange):
     rangeVal = int(contract.getStrike())
     rangeVal2 = int(contract.getStrike())
+    print( "            ")
     for i in range(dayRange):
-        print("     day: ", i, "     ", end = "")
+        print("       day: ", i, end = "")
     print()
     for i in range(rangeVal-int(moneyRange/2), rangeVal2+int(moneyRange/2)):
         print(i, end=" ")
         for day in range(dayRange):
             counter = 1
-            gammaGrowth = (i-float(contract.getStrike())) * float(contract.getGamma())
-            thetaDecay = float(contract.getTheta())*day
-            greekDelta = gammaGrowth + (thetaDecay)
-            profit = (float(contract.getPrice()) + greekDelta)*100
+            deltaGrowth = ()
+            deltaGrowth = (i-float(contract.getStrike())) * float(contract.getDelta())*100
+            thetaDecay = float(contract.getTheta())*day*100
+            greekDelta = deltaGrowth + (thetaDecay)
+            profit = (greekDelta)
             roundProfit = round(profit,2)
+            print("      ", end = " ")
             print(roundProfit, end = " ")
+        print()
 
             # print("Growth", gammaGrowth)
             # print("Decay", thetaDecay)
@@ -65,7 +69,7 @@ def calculatePut(contract, moneyRange, stc, dayRange):
 
 
 class Main(Contract):
-    test = Contract(92.5, -0.0032, 0.72, "2023-02-10", 0.09)
+    #test = Contract(92.5, -0.0032, 0.72, "2023-02-10", 0.09)
     data = printValues("CSCO")
     #calculate(b, 20, True, 20)
     x = 0
@@ -74,6 +78,6 @@ class Main(Contract):
         if c.getDate().__contains__("Calls"):
             print(x, " - ", c)
 
-    calculate(data[25], 20, True, 7)
+    calculate(data[24], 10, True, 7)
 
 
