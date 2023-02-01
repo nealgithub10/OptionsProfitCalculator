@@ -7,6 +7,8 @@ class Contract:
         self.gamma = gamma
         self.delta = delta
 
+    #Getters and Setters
+
     def getStrike(self):
         return self.strike
 
@@ -42,6 +44,8 @@ class Contract:
 
     def setDelta(self, delta):
         self.delta = delta
+
+    #This is the toString equivalent
     def __str__(self):
         return  "strike:" + self.strike + ", price:" + self.price + ", theta:" + self.theta + ", date: " + self.date + ", gamma:" + self.gamma + ", delta:" + self.delta
 
