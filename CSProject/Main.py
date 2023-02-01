@@ -3,6 +3,8 @@ import sys
 
 from CSProject.Contract import Contract
 from CSProject.stocks import printValues
+from datetime import date
+from datetime import datetime
 
 #exercise option
 def calculate(contract, moneyRange):
@@ -78,3 +80,6 @@ def calculatePut(contract, moneyRange, stc, dayRange):
         # print("Growth", gammaGrowth)
         # print("Decay", thetaDecay)
         # print("Delta", greekDelta)
+
+
+

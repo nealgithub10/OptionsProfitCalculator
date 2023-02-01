@@ -9,11 +9,17 @@ import sys
 from bs4 import BeautifulSoup
 
 from Contract import Contract
+from datetime import date
+import datetime
 
+date = date.today()
+today = date.today()
+dateStr = (str(today).replace("-", ""))
 
 def printValues(symbol):
+
   #scrape_url = 'https://www.optionistics.com/quotes/stock-option-chains/' + symbol + '?symbol=' + symbol + '&chtype=0&nonstd=-1&greeks=1&mn1min=21&mn1max=27&expmin=0&expmax=2&ovmin=0&ovmax=6&strike=&expiry=&op=chains&date=20230127&prevsym=CSCO&clear=0&prevns=-1&prevns=CSCO&v=1'
-  scrape_url = 'https://www.optionistics.com/quotes/stock-option-chains/' + symbol + '?symbol=' + symbol + '&chtype=0&nonstd=-1&greeks=1&mn1min=4&mn1max=10&expmin=0&expmax=2&ovmin=0&ovmax=6&strike=&expiry=&op=chains&date=20230130&prevsym=ASA&clear=0&prevns=-1&prevns=ASA&v=1'
+  scrape_url = 'https://www.optionistics.com/quotes/stock-option-chains/' + symbol + '?symbol=' + symbol + '&chtype=0&nonstd=-1&greeks=1&mn1min=4&mn1max=10&expmin=0&expmax=2&ovmin=0&ovmax=6&strike=&expiry=&op=chains&date=' + dateStr + '&prevsym=ASA&clear=0&prevns=-1&prevns=ASA&v=1'
   html_text = requests.get(scrape_url).text
   soup = BeautifulSoup(html_text, 'html.parser')
   tables = soup.find_all('table')
