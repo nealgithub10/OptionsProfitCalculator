@@ -25,7 +25,8 @@ def calculate(Contract, moneyRange, stc, dayRange):
         for i in range(dayRange):
             profit = float(Contract.getPrice())*100 - float()
 
-
+test=Contract(101,-0.09,0.3,"2023-02-10",0.09)
+calculate(test,20,True,20)
 
 
 
