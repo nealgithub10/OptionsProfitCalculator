@@ -8,6 +8,9 @@ from datetime import datetime
 
 import tkinter as tk
 
+from tabulate import tabulate
+
+
 # For the following two methods, moneyRange is the amount of market prices to show the user
 
 # This calculates the profit if one were to exercise the call option
@@ -59,21 +62,26 @@ def calculate2(contract, moneyRange, stc, dayRange):
             print(roundProfit, end=" ")
         print()
 
-        # print("Growth", gammaGrowth)
+
+
+    # print("Growth", gammaGrowth)
         # print("Decay", thetaDecay)
         # print("Delta", greekDelta)
 
 
 # This calculates the profit if one were to Sell to close a current put contract position
 def calculatePut2(contract, moneyRange, stc, dayRange):
-    rangeVal = int(contract.getStrike())
-    rangeVal2 = int(contract.getStrike())
-    print("\t")
+    rangeVal = int(float(contract.getStrike()))
+    rangeVal2 = int(float(contract.getStrike()))
+    table = []
+    header=[]
+    header.append("marketPrice")
     for i in range(dayRange):
-        print("\tday: ", i, end="")
-    print()
+        header.append("day " + str(i))
+    table.append(header)
     for i in range(rangeVal - int(moneyRange / 2), rangeVal2 + int(moneyRange / 2)):
-        print(i, end="\t")
+        dataRow = []
+        dataRow.append(i)
         for day in range(dayRange):
             value = float(contract.getDelta())
             if float(contract.getDelta()) > 0:
@@ -85,9 +93,10 @@ def calculatePut2(contract, moneyRange, stc, dayRange):
             greekDelta = deltaGrowth + (thetaDecay)
             profit = (greekDelta)
             roundProfit = round(profit, 2)
-            print("\t", end="\t")
-            print(roundProfit, end="\t")
-        print()
+            dataRow.append(roundProfit)
+
+        table.append(dataRow)
+    print(tabulate(table, headers='firstrow', tablefmt='fancy_grid'))
 
         # print("Growth", gammaGrowth)
         # print("Decay", thetaDecay)
@@ -131,4 +140,6 @@ class Main:
         if (orderType == "stc"):
             moneyRange = int(input("Please enter the money range you want to display"))
             dayRange = int(input("Please enter the day range you want to display"))
+
+            print("CalculatePut2")
             calculatePut2(myContract, moneyRange, True, dayRange)
