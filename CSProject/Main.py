@@ -129,23 +129,19 @@ class Main:
     if ("Call" in myContract.getDate()):
         orderType = input("exercise or stc? ")
         if (orderType == "exercise"):
-            moneyRange = int(input("Please enter the money range you want to display"))
+            moneyRange = int(input("Please enter the money range you want to display: "))
             calculate1(myContract, moneyRange)
         if (orderType == "stc"):
-            moneyRange = int(input("Please enter the money range you want to display"))
-            dayRange = int(input("Please enter the day range you want to display"))
-
-            print("Calc2")
+            moneyRange = int(input("Please enter the money range you want to display: "))
+            dayRange = int(input("Please enter the day range you want to display: "))
             calculate2(myContract, moneyRange, True, dayRange)
 
     if ("Put" in myContract.getDate()):
         orderType = input("exercise or stc? ")
         if (orderType == "exercise"):
-            moneyRange = int(input("Please enter the money range you want to display"))
+            moneyRange = int(input("Please enter the money range you want to display: "))
             calculatePut1(myContract, moneyRange)
         if (orderType == "stc"):
-            moneyRange = int(input("Please enter the money range you want to display"))
-            dayRange = int(input("Please enter the day range you want to display"))
-
-            print("CalculatePut2")
+            moneyRange = int(input("Please enter the money range you want to display: "))
+            dayRange = int(input("Please enter the day range you want to display: "))
             calculatePut2(myContract, moneyRange, True, dayRange)
