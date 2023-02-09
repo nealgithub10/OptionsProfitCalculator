@@ -42,14 +42,18 @@ def calculatePut1(contract, moneyRange):
 # ^ predicting that requires much more analysis of the current market
 
 def calculate2(contract, moneyRange, stc, dayRange):
-    rangeVal = int(contract.getStrike())
-    rangeVal2 = int(contract.getStrike())
-    print("            ")
+    rangeVal = int(float(contract.getStrike()))
+    rangeVal2 = int(float(contract.getStrike()))
+    table = []
+    headers = []
+    headers.append("market Price")
     for i in range(dayRange):
-        print("       day: ", i, end="")
+        headers.append("days " + str(i))
+    table.append(headers)
     print()
     for i in range(rangeVal - int(moneyRange / 2), rangeVal2 + int(moneyRange / 2)):
-        print(i, end=" ")
+        data = []
+        data.append(i)
         for day in range(dayRange):
             #amt the price of the option changes per dollar that the market price changes
             deltaGrowth = (i - float(contract.getStrike())) * float(contract.getDelta()) * 100
@@ -58,9 +62,9 @@ def calculate2(contract, moneyRange, stc, dayRange):
             greekDelta = deltaGrowth + (thetaDecay)
             profit = (greekDelta)
             roundProfit = round(profit, 2)
-            print("      ", end=" ")
-            print(roundProfit, end=" ")
-        print()
+            data.append(roundProfit)
+        table.append(data)
+    print(tabulate(table, headers='firstrow', tablefmt='fancy_grid'))
 
 
 
@@ -130,6 +134,8 @@ class Main:
         if (orderType == "stc"):
             moneyRange = int(input("Please enter the money range you want to display"))
             dayRange = int(input("Please enter the day range you want to display"))
+
+            print("Calc2")
             calculate2(myContract, moneyRange, True, dayRange)
 
     if ("Put" in myContract.getDate()):
