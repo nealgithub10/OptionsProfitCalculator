@@ -1,7 +1,5 @@
 #Scrape class
 
-
-
 ## sudo python -m ensurepip
 ## sudo pip install requests
 ## sudo pip install bs4
@@ -27,7 +25,7 @@ dateStr = (str(today).replace("-", ""))
 def printValues(symbol):
   #This value must be changed daily
   #getting the current date does not work because of market hours
-  date = '20230131'
+  date = '20230208'
   #This is the url and query that we want to scrap
   scrape_url = 'https://www.optionistics.com/quotes/stock-option-chains/' + symbol + '?symbol=' + symbol + '&chtype=0&nonstd=-1&greeks=1&mn1min=4&mn1max=10&expmin=0&expmax=2&ovmin=0&ovmax=6&strike=&expiry=&op=chains&date=' + date + '&prevsym=ASA&clear=0&prevns=-1&prevns=ASA&v=1'
   html_text = requests.get(scrape_url).text
